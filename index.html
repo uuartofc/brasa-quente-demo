@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brasa Quente | J&amp;A Ltda</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <meta
+      name="description"
+      content="Catalogo digital da Brasa Quente, lanchonete artesanal da J&A Ltda com burgers, combos, porcoes e abertura para pedidos online."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#inicio" aria-label="Brasa Quente">
+        <img class="brand-logo" src="assets/logo-brasa-quente.svg" alt="">
+        <span>
+          <strong>Brasa Quente</strong>
+          <small>por J&amp;A Ltda</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Principal">
+        <a href="#cardapio">Cardapio</a>
+        <a href="#combos">Combos</a>
+        <a href="#pedido">Pedido online</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <button class="cart-pill" type="button" data-open-cart>
+        <span>Carrinho</span>
+        <strong data-cart-count>0</strong>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <img class="hero-image" src="assets/hero-artesanal.png" alt="Burgers artesanais com batatas rusticas, molhos e bebidas em uma bancada de madeira">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Lanchonete artesanal</p>
+          <h1 id="hero-title">Brasa Quente</h1>
+          <p>
+            Burgers artesanais, ingredientes frescos, batata crocante e combos bem montados.
+            Um catalogo com cara de balcao digital, pronto para virar pedido online.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#cardapio">Ver cardapio</a>
+            <a class="button secondary" href="#pedido">Montar pedido</a>
+          </div>
+          <dl class="hero-stats" aria-label="Destaques">
+            <div>
+              <dt>12+</dt>
+              <dd>opcoes no catalogo</dd>
+            </div>
+            <div>
+              <dt>35 min</dt>
+              <dd>preparo medio</dd>
+            </div>
+            <div>
+              <dt>J&amp;A</dt>
+              <dd>marca dos socios</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="Beneficios">
+        <span>Pao tostado na chapa</span>
+        <span>Blend artesanal</span>
+        <span>Molhos da casa</span>
+        <span>Combos bem servidos</span>
+        <span>Pedido online em breve</span>
+      </section>
+
+      <section class="section intro" aria-labelledby="intro-title">
+        <div>
+          <p class="eyebrow">Nome fantasia</p>
+          <h2 id="intro-title">Um nome quente, artesanal e facil de lembrar.</h2>
+        </div>
+        <p>
+          <strong>Brasa Quente</strong> combina com chapa, pao tostado e burger feito com cuidado.
+          A J&amp;A Ltda continua como empresa por tras da operacao, enquanto o nome fantasia conversa
+          melhor com quem busca um lanche artesanal e bem servido. A landing page ja nasce com catalogo,
+          carrinho local e secoes que podem receber pagamentos, login, entrega e painel administrativo depois.
+        </p>
+      </section>
+
+      <section class="section menu-section" id="cardapio" aria-labelledby="menu-title">
+        <div class="section-heading">
+          <p class="eyebrow">Catalogo</p>
+          <h2 id="menu-title">Cardapio artesanal, claro e facil de pedir.</h2>
+        </div>
+
+        <div class="filters" role="tablist" aria-label="Filtrar cardapio">
+          <button class="filter active" type="button" data-filter="todos">Todos</button>
+          <button class="filter" type="button" data-filter="burgers">Burgers</button>
+          <button class="filter" type="button" data-filter="combos">Combos</button>
+          <button class="filter" type="button" data-filter="porcoes">Porcoes</button>
+          <button class="filter" type="button" data-filter="bebidas">Bebidas</button>
+        </div>
+
+        <div class="menu-grid" data-menu-grid></div>
+      </section>
+
+      <section class="section split" id="combos" aria-labelledby="combo-title">
+        <div class="combo-panel">
+          <p class="eyebrow">Mais pedido</p>
+          <h2 id="combo-title">Combo Brasa da Casa</h2>
+          <p>
+            Dois burgers artesanais, batata rustica, dois refrigerantes e molho da casa.
+            Um destaque perfeito para delivery, vitrine do cardapio e primeira compra.
+          </p>
+          <button class="button primary" type="button" data-featured-add>Adicionar combo</button>
+        </div>
+        <div class="steps" aria-label="Fluxo futuro">
+          <article>
+            <span>01</span>
+            <h3>Cliente escolhe</h3>
+            <p>O catalogo ja separa categorias, precos e descricoes.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Carrinho monta</h3>
+            <p>O total local simula o primeiro passo do pedido online.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Sistema recebe</h3>
+            <p>Depois entra checkout, WhatsApp, Pix ou painel proprio.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section order-section" id="pedido" aria-labelledby="order-title">
+        <div class="section-heading">
+          <p class="eyebrow">Pedido online</p>
+          <h2 id="order-title">Base pronta para evoluir.</h2>
+        </div>
+
+        <div class="order-grid">
+          <article class="order-card">
+            <h3>Status atual</h3>
+            <p>Catalogo navegavel com carrinho no navegador. Ideal para validar cardapio, preco e identidade visual.</p>
+          </article>
+          <article class="order-card">
+            <h3>Proximo passo</h3>
+            <p>Conectar o botao de finalizar ao WhatsApp, a uma API propria ou a um sistema de pedidos.</p>
+          </article>
+          <article class="order-card">
+            <h3>Depois</h3>
+            <p>Adicionar cadastro, pagamento online, cupom, acompanhamento de preparo e area administrativa.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cart-drawer" data-cart aria-hidden="true" aria-labelledby="cart-title">
+      <div class="cart-header">
+        <div>
+          <p class="eyebrow">Seu pedido</p>
+          <h2 id="cart-title">Carrinho</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-cart aria-label="Fechar carrinho">x</button>
+      </div>
+      <div class="cart-items" data-cart-items></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total</span>
+          <strong data-cart-total>R$ 0,00</strong>
+        </div>
+        <button class="button primary full" type="button" data-checkout>Finalizar pelo WhatsApp</button>
+        <small>Simulacao pronta para conectar ao sistema de pedidos.</small>
+      </div>
+    </aside>
+    <div class="scrim" data-scrim></div>
+
+    <footer class="footer" id="contato">
+      <div>
+        <a class="brand footer-brand" href="#inicio">
+          <img class="brand-logo" src="assets/logo-brasa-quente.svg" alt="">
+          <span>
+            <strong>Brasa Quente</strong>
+            <small>J&amp;A Ltda</small>
+          </span>
+        </a>
+        <p>Rua da Chapa, 123 - Centro<br>Aberto de terca a domingo, 18h as 23h.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="mailto:contato@brasaquente.com.br">contato@brasaquente.com.br</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
