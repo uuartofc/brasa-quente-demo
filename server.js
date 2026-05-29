@@ -7,6 +7,7 @@ const PORT = Number(process.env.PORT || 4178);
 const ROOT = __dirname;
 const ORDERS_FILE = path.join(ROOT, "data", "orders.json");
 const SITE_DISCOUNT_RATE = 0.1;
+const PAYMENT_METHODS = new Set(["Pix", "Dinheiro", "Cartao de Debito", "Cartao de Credito"]);
 
 const catalog = new Map([
   ["brasa-classico", { name: "Brasa Classico", price: 15.9, meatPoint: true }],
@@ -89,6 +90,7 @@ function buildOrder(payload) {
   const total = money(subtotal - siteDiscount + deliveryFee);
   const customer = payload.customer || {};
   const delivery = payload.delivery || {};
+  const paymentMethod = String(payload.paymentMethod || "").trim();
 
   if (!customer.name || !customer.phone) {
     throw new Error("Informe nome e telefone para criar o pedido.");
@@ -96,6 +98,10 @@ function buildOrder(payload) {
 
   if (!delivery.address) {
     throw new Error("Informe o endereco de entrega.");
+  }
+
+  if (!PAYMENT_METHODS.has(paymentMethod)) {
+    throw new Error("Informe uma forma de pagamento valida.");
   }
 
   return {
@@ -113,6 +119,9 @@ function buildOrder(payload) {
       distanceKm: delivery.distanceKm ? Number(delivery.distanceKm) : null,
       durationMin: delivery.durationMin ? Number(delivery.durationMin) : null,
       fee: deliveryFee
+    },
+    payment: {
+      method: paymentMethod
     },
     pricing: {
       subtotal,

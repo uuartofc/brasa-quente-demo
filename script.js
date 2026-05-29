@@ -158,6 +158,7 @@ const customerName = document.querySelector("[data-customer-name]");
 const customerPhone = document.querySelector("[data-customer-phone]");
 const addressInput = document.querySelector("[data-address]");
 const addressComplement = document.querySelector("[data-complement]");
+const paymentMethod = document.querySelector("[data-payment-method]");
 const deliveryStatus = document.querySelector("[data-delivery-status]");
 const orderStatus = document.querySelector("[data-order-status]");
 
@@ -384,6 +385,7 @@ function orderPayload() {
           complement: addressComplement.value.trim(),
           fee: 0
         },
+    paymentMethod: paymentMethod.value,
     items: entries.map(({ item, qty, point }) => ({
       id: item.id,
       qty,
@@ -400,6 +402,11 @@ async function checkout() {
 
   if (!customerName.value.trim() || !customerPhone.value.trim()) {
     orderStatus.textContent = "Informe nome e telefone para enviar o pedido.";
+    return;
+  }
+
+  if (!paymentMethod.value) {
+    orderStatus.textContent = "Selecione a forma de pagamento.";
     return;
   }
 

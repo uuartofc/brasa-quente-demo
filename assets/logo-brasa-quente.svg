@@ -1,14 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 160" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="title desc">
   <title id="title">Brasa Quente</title>
-  <desc id="desc">Logo da lanchonete Brasa Quente</desc>
-  <rect width="420" height="160" rx="28" fill="#fff5e7"/>
-  <rect x="10" y="10" width="400" height="140" rx="24" fill="#15110f"/>
-  <circle cx="88" cy="80" r="48" fill="#d12e24"/>
-  <path d="M88 34c15 18 30 33 30 56 0 22-14 38-30 38s-30-16-30-38c0-23 15-38 30-56Z" fill="#f2b326"/>
-  <path d="M90 57c8 13 17 23 17 37 0 13-8 23-18 23-11 0-19-10-19-23 0-15 11-24 20-37Z" fill="#fff5e7"/>
-  <path d="M46 117h84" stroke="#f2b326" stroke-width="9" stroke-linecap="round"/>
-  <path d="M57 132h62" stroke="#d12e24" stroke-width="9" stroke-linecap="round"/>
-  <text x="158" y="75" fill="#fff5e7" font-family="Arial Black, Impact, sans-serif" font-size="40" font-weight="900">BRASA</text>
-  <text x="158" y="119" fill="#f2b326" font-family="Arial Black, Impact, sans-serif" font-size="43" font-weight="900">QUENTE</text>
-  <path d="M158 130h202" stroke="#d12e24" stroke-width="7" stroke-linecap="round"/>
+  <desc id="desc">Logo oficial vetorial da hamburgueria Brasa Quente</desc>
+  <defs>
+    <linearGradient id="fire" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffb21f"/>
+      <stop offset="0.45" stop-color="#ff5b0a"/>
+      <stop offset="1" stop-color="#d60000"/>
+    </linearGradient>
+    <linearGradient id="cheese" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffb11c"/>
+      <stop offset="1" stop-color="#ff5a00"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="720" height="720" fill="#fff"/>
+  <g filter="url(#softShadow)">
+    <path d="M237 238c-27-63 25-111 68-164 24 57-10 87-27 132 48-48 130-78 134-166 61 48 69 109 38 168 33-35 57-19 49 19-8 37 30 50 49 20 32 50 33 101 2 146-34 50-98 72-184 72H291c-95 0-132-65-54-227Z" fill="url(#fire)"/>
+    <path d="M190 374c6-95 88-159 191-159s185 64 191 159H190Z" fill="#fff"/>
+    <path d="M219 365c7-68 75-114 162-114s155 46 162 114H219Z" fill="url(#fire)"/>
+    <g fill="#fff">
+      <ellipse cx="292" cy="292" rx="12" ry="7" transform="rotate(-24 292 292)"/>
+      <ellipse cx="343" cy="277" rx="12" ry="7" transform="rotate(9 343 277)"/>
+      <ellipse cx="392" cy="292" rx="12" ry="7" transform="rotate(22 392 292)"/>
+      <ellipse cx="455" cy="303" rx="12" ry="7" transform="rotate(20 455 303)"/>
+      <ellipse cx="319" cy="324" rx="12" ry="7" transform="rotate(-12 319 324)"/>
+      <ellipse cx="403" cy="331" rx="12" ry="7" transform="rotate(15 403 331)"/>
+    </g>
+    <path d="M174 374h414c12 0 22 10 22 22v10H152v-10c0-12 10-22 22-22Z" fill="#111"/>
+    <path d="M178 414h394v54c0 22-18 40-40 40H218c-22 0-40-18-40-40v-54Z" fill="#111"/>
+    <path d="M214 421h322v22c-22 0-28 36-51 36-25 0-29-42-63-42-36 0-45 52-76 52-29 0-35-52-70-52-33 0-37 42-62 42v-58Z" fill="url(#cheese)"/>
+    <path d="M172 501c56 56 132 84 226 80 82-3 145-31 189-80v54c-36 66-109 105-202 105-95 0-171-39-213-105v-54Z" fill="#111"/>
+    <g fill="url(#fire)" opacity="0.96">
+      <path d="M217 538h42l-32 72h-42z"/>
+      <path d="M292 538h42l-32 86h-42z"/>
+      <path d="M367 538h42l-32 92h-42z"/>
+      <path d="M442 538h42l-32 78h-42z"/>
+      <path d="M517 538h35l-28 54h-35z"/>
+    </g>
+  </g>
+  <text x="360" y="619" text-anchor="middle" fill="#111" font-family="Arial Black, Impact, sans-serif" font-size="105" font-style="italic" font-weight="900">Brasa</text>
+  <text x="370" y="688" text-anchor="middle" fill="url(#fire)" font-family="Arial Black, Impact, sans-serif" font-size="86" font-style="italic" font-weight="900">Quente</text>
+  <path d="M282 702c72-14 163-25 254-25" stroke="#e51f00" stroke-width="9" stroke-linecap="round"/>
 </svg>

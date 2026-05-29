@@ -70,10 +70,11 @@ button {
 }
 
 .brand-logo {
-  width: 58px;
-  height: 46px;
+  width: 62px;
+  height: 62px;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.96);
 }
 
 .brand-mark {
@@ -448,7 +449,8 @@ h1 {
 }
 
 .point-select select,
-.delivery-box input {
+.delivery-box input,
+.delivery-box select {
   width: 100%;
   min-height: 40px;
   border: 1px solid var(--line);
@@ -716,7 +718,8 @@ h1 {
   font-weight: 800;
 }
 
-.delivery-box input {
+.delivery-box input,
+.delivery-box select {
   margin-top: 6px;
   padding: 0 12px;
 }
@@ -833,7 +836,7 @@ h1 {
 
   .brand-logo {
     width: 50px;
-    height: 40px;
+    height: 50px;
   }
 
   .hero {

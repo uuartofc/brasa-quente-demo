@@ -1,7 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#15110f"/>
-  <circle cx="32" cy="32" r="23" fill="#d12e24"/>
-  <path d="M32 11c8 10 15 18 15 31 0 10-7 17-15 17s-15-7-15-17c0-13 7-21 15-31Z" fill="#f2b326"/>
-  <path d="M33 23c4 6 8 11 8 18 0 6-4 11-9 11s-9-5-9-11c0-7 5-12 10-18Z" fill="#fff5e7"/>
-  <path d="M19 51h26" stroke="#15110f" stroke-width="4" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="f" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffb21f"/>
+      <stop offset=".5" stop-color="#ff5b0a"/>
+      <stop offset="1" stop-color="#d60000"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#111"/>
+  <path d="M20 26c-5-13 8-18 13-25 3 11-3 15-5 22 8-8 20-12 20-24 10 8 11 17 6 26 5-5 9-3 8 3-1 7 5 8 8 3 4 8 2 18-6 24-7 5-18 7-30 6-18-1-26-13-14-35Z" fill="url(#f)" transform="scale(.78) translate(5 1)"/>
+  <path d="M13 34h38c4 0 7 3 7 7H6c0-4 3-7 7-7Z" fill="#fff"/>
+  <path d="M11 41h42v5H11z" fill="#111"/>
+  <path d="M13 47h38c-3 7-10 11-19 11s-16-4-19-11Z" fill="url(#f)"/>
 </svg>
