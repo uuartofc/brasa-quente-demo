@@ -1,0 +1,10 @@
+{
+  "name": "brasa-quente-demo",
+  "version": "1.0.0",
+  "description": "Demo da hamburgueria artesanal delivery Brasa Quente.",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

@@ -31,6 +31,8 @@
         <a href="#cardapio">Cardapio</a>
         <a href="#combos">Combos</a>
         <a href="#pedido">Pedido online</a>
+        <a href="#marca">Marca</a>
+        <a href="#canais">Canais</a>
         <a href="#contato">Contato</a>
       </nav>
 
@@ -49,7 +51,7 @@
           <h1 id="hero-title">Brasa Quente</h1>
           <p>
             Hamburgueria artesanal focada em delivery, com smash na brasa, porcoes crocantes
-            e pedido online pensado para calcular rota, ponto da carne e frete.
+            e pedido online mais barato que os apps, com rota, ponto da carne e frete.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#cardapio">Ver cardapio</a>
@@ -78,6 +80,7 @@
         <span>Molhos da casa</span>
         <span>Ponto da carne</span>
         <span>Frete por rota</span>
+        <span>Site com preco melhor</span>
       </section>
 
       <section class="section intro" aria-labelledby="intro-title">
@@ -90,6 +93,7 @@
           A J&amp;A Ltda continua como empresa por tras da operacao, enquanto o nome fantasia conversa
           melhor com quem busca um lanche artesanal e bem servido. A landing page agora nasce como delivery:
           o cliente escolhe o ponto da carne, informa o endereco e recebe uma estimativa de rota e frete.
+          Para incentivar o pedido direto, compras pelo site recebem desconto automatico.
         </p>
       </section>
 
@@ -143,21 +147,84 @@
       <section class="section order-section" id="pedido" aria-labelledby="order-title">
         <div class="section-heading">
           <p class="eyebrow">Pedido online</p>
-          <h2 id="order-title">Base pronta para evoluir.</h2>
+          <h2 id="order-title">Comprar pelo site sai mais barato.</h2>
         </div>
 
         <div class="order-grid">
           <article class="order-card">
             <h3>Status atual</h3>
-            <p>Catalogo navegavel com carrinho, ponto da carne e formulario de delivery.</p>
+            <p>Pedido direto no site com carrinho, ponto da carne, dados do cliente e entrega.</p>
           </article>
           <article class="order-card">
-            <h3>Proximo passo</h3>
-            <p>Trocar o WhatsApp placeholder, validar a tabela de frete e conectar pagamento.</p>
+            <h3>Desconto direto</h3>
+            <p>O site aplica 10% de desconto nos itens para competir com as taxas dos apps.</p>
           </article>
           <article class="order-card">
             <h3>Depois</h3>
-            <p>Adicionar cadastro, Pix, cupom, acompanhamento de preparo e area administrativa.</p>
+            <p>Adicionar Pix, status de preparo, painel de cozinha e integracao com impressora.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section brand-section" id="marca" aria-labelledby="brand-title">
+        <div class="section-heading">
+          <p class="eyebrow">Cadastro da marca</p>
+          <h2 id="brand-title">Hamburgueria artesanal delivery em Pocos de Caldas.</h2>
+        </div>
+        <div class="brand-grid">
+          <article>
+            <span>Empresa</span>
+            <h3>Brasa Quente</h3>
+            <p>Segmento: Hamburgueria Artesanal Delivery. Atendimento: delivery, com retirada no local como possibilidade futura.</p>
+          </article>
+          <article>
+            <span>Funcionamento</span>
+            <h3>19h as 01h</h3>
+            <p>Segunda a domingo, ainda a confirmar conforme operacao e escala dos 2 socios.</p>
+          </article>
+          <article>
+            <span>Missao</span>
+            <h3>Qualidade com preco justo</h3>
+            <p>Oferecer hamburgueres artesanais preparados na hora, com ingredientes selecionados e atendimento rapido.</p>
+          </article>
+          <article>
+            <span>Visao</span>
+            <h3>Referencia local</h3>
+            <p>Ser referencia em hamburguer artesanal delivery em Pocos de Caldas.</p>
+          </article>
+          <article>
+            <span>Valores</span>
+            <h3>Sabor e honestidade</h3>
+            <p>Qualidade, honestidade, higiene, atendimento rapido e sabor em cada pedido.</p>
+          </article>
+          <article>
+            <span>Cidade</span>
+            <h3>Pocos de Caldas - MG</h3>
+            <p>Base operacional na Rua Diamante, Jardim Kennedy II, com frete estimado por rota.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section marketplace-section" id="canais" aria-labelledby="channels-title">
+        <div class="section-heading">
+          <p class="eyebrow">Canais</p>
+          <h2 id="channels-title">Site direto, iFood e 99Food.</h2>
+        </div>
+        <div class="channel-grid">
+          <article>
+            <h3>Pedido pelo site</h3>
+            <p>Melhor preco, desconto automatico e pedido salvo na API da Brasa Quente.</p>
+            <a class="button primary" href="#cardapio">Pedir com desconto</a>
+          </article>
+          <article>
+            <h3>iFood</h3>
+            <p>Canal de marketplace para alcance. Precos podem ser maiores por taxa da plataforma.</p>
+            <a class="button secondary dark" href="https://www.ifood.com.br/" target="_blank" rel="noreferrer">Abrir iFood</a>
+          </article>
+          <article>
+            <h3>99Food</h3>
+            <p>Canal alternativo de delivery. Disponibilidade depende da operacao local.</p>
+            <a class="button secondary dark" href="https://99app.com/99food/" target="_blank" rel="noreferrer">Abrir 99Food</a>
           </article>
         </div>
       </section>
@@ -174,6 +241,15 @@
       <div class="cart-items" data-cart-items></div>
       <div class="cart-footer">
         <div class="delivery-box">
+          <strong>Cliente</strong>
+          <label>
+            Nome
+            <input data-customer-name type="text" placeholder="Nome para o pedido">
+          </label>
+          <label>
+            Telefone
+            <input data-customer-phone type="tel" placeholder="DDD + numero">
+          </label>
           <strong>Entrega</strong>
           <small>Origem: Rua Diamante, Jardim Kennedy II, Pocos de Caldas - MG</small>
           <label>
@@ -191,6 +267,10 @@
           <span>Subtotal</span>
           <strong data-cart-subtotal>R$ 0,00</strong>
         </div>
+        <div class="cart-total muted-total discount-total">
+          <span>Desconto site</span>
+          <strong data-site-discount>- R$ 0,00</strong>
+        </div>
         <div class="cart-total muted-total">
           <span>Frete</span>
           <strong data-delivery-fee>A calcular</strong>
@@ -199,8 +279,8 @@
           <span>Total estimado</span>
           <strong data-cart-total>R$ 0,00</strong>
         </div>
-        <button class="button primary full" type="button" data-checkout>Finalizar pelo WhatsApp</button>
-        <small>Delivery apenas. Frete calculado por rota estimada e sujeito a confirmacao.</small>
+        <button class="button primary full" type="button" data-checkout>Enviar pedido pelo site</button>
+        <small data-order-status>Delivery apenas. Frete calculado por rota estimada e sujeito a confirmacao.</small>
       </div>
     </aside>
     <div class="scrim" data-scrim></div>

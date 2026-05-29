@@ -12,19 +12,38 @@ Recursos da demo:
 - Escolha de ponto da carne nos burgers e combos com carne.
 - Fluxo exclusivo para delivery.
 - Estimativa de rota e frete a partir da Rua Diamante, Jardim Kennedy II, Pocos de Caldas/MG.
-- Mensagem de WhatsApp montada com itens, ponto da carne, endereco, frete e total estimado.
+- API local para receber pedidos do site em `POST /api/orders`.
+- Desconto automatico de 10% nos pedidos feitos diretamente pelo site.
+- Canais externos indicados: iFood e 99Food.
+
+## Dados da empresa
+
+- Nome: Brasa Quente
+- Segmento: Hamburgueria Artesanal Delivery
+- Cidade: Pocos de Caldas - MG
+- Horario: segunda a domingo, 19h as 01h (a confirmar)
+- Modelo de atendimento: delivery; retirada no local futuramente
+- Socios: 2
+
+## Marca
+
+Missao: oferecer hamburgueres artesanais de qualidade, preparados na hora, com ingredientes selecionados e preco justo.
+
+Visao: ser referencia em hamburguer artesanal delivery em Pocos de Caldas.
+
+Valores: qualidade, honestidade, atendimento rapido, higiene e sabor.
 
 Para abrir localmente:
 
 ```bash
-python -m http.server 4178
+npm start
 ```
 
 Depois acesse `http://localhost:4178`.
 
 ## Como abrir
 
-Abra `index.html` no navegador. O projeto e estatico e nao precisa de servidor para funcionar.
+Para testar somente a landing page, abra `index.html` no navegador. Para testar envio de pedidos pela API, rode `npm start`.
 
 ## Estrutura
 
@@ -39,5 +58,5 @@ Abra `index.html` no navegador. O projeto e estatico e nao precisa de servidor p
 
 - Trocar telefone placeholder no WhatsApp.
 - Ajustar endereco, horarios e precos reais.
-- Conectar o carrinho a uma API de pedidos.
 - Adicionar Pix, cupons e painel administrativo.
+- Criar painel de pedidos para visualizar o arquivo `data/orders.json`.

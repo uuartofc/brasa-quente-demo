@@ -1,6 +1,7 @@
 const STORE_ADDRESS = "Rua Diamante, Jardim Kennedy II, Pocos de Caldas, MG, 37706-528";
-const STORE_COORDS = { lat: -21.788, lon: -46.562713 };
+const STORE_COORDS = { lat: -21.84089, lon: -46.57681 };
 const MEAT_POINTS = ["Mal passado", "Ao ponto", "Bem passado"];
+const SITE_DISCOUNT_RATE = 0.1;
 
 const menu = [
   {
@@ -149,12 +150,16 @@ const scrim = document.querySelector("[data-scrim]");
 const cartItems = document.querySelector("[data-cart-items]");
 const cartSubtotal = document.querySelector("[data-cart-subtotal]");
 const deliveryFee = document.querySelector("[data-delivery-fee]");
+const siteDiscount = document.querySelector("[data-site-discount]");
 const cartTotal = document.querySelector("[data-cart-total]");
 const cartCount = document.querySelector("[data-cart-count]");
 const header = document.querySelector("[data-header]");
+const customerName = document.querySelector("[data-customer-name]");
+const customerPhone = document.querySelector("[data-customer-phone]");
 const addressInput = document.querySelector("[data-address]");
 const addressComplement = document.querySelector("[data-complement]");
 const deliveryStatus = document.querySelector("[data-delivery-status]");
+const orderStatus = document.querySelector("[data-order-status]");
 
 function visibleItems() {
   if (state.filter === "todos") return menu;
@@ -220,13 +225,19 @@ function deliveryValue() {
   return state.delivery?.fee ?? 0;
 }
 
+function discountValue(subtotal) {
+  return Math.round(subtotal * SITE_DISCOUNT_RATE * 100) / 100;
+}
+
 function renderCart() {
   const entries = [...state.cart.values()];
   const summary = cartSummary();
-  const total = summary.subtotal + deliveryValue();
+  const discount = discountValue(summary.subtotal);
+  const total = summary.subtotal - discount + deliveryValue();
 
   cartCount.textContent = summary.count;
   cartSubtotal.textContent = formatter.format(summary.subtotal);
+  siteDiscount.textContent = `- ${formatter.format(discount)}`;
   deliveryFee.textContent = state.delivery ? formatter.format(state.delivery.fee) : "A calcular";
   cartTotal.textContent = formatter.format(total);
 
@@ -353,34 +364,68 @@ async function calculateDelivery() {
   renderCart();
 }
 
-function checkout() {
+function orderPayload() {
   const entries = [...state.cart.values()];
-  if (!entries.length) {
+  return {
+    customer: {
+      name: customerName.value.trim(),
+      phone: customerPhone.value.trim()
+    },
+    delivery: state.delivery
+      ? {
+          address: state.delivery.address,
+          complement: state.delivery.complement || addressComplement.value.trim(),
+          distanceKm: state.delivery.distanceKm,
+          durationMin: state.delivery.durationMin,
+          fee: state.delivery.fee
+        }
+      : {
+          address: addressInput.value.trim(),
+          complement: addressComplement.value.trim(),
+          fee: 0
+        },
+    items: entries.map(({ item, qty, point }) => ({
+      id: item.id,
+      qty,
+      point
+    }))
+  };
+}
+
+async function checkout() {
+  if (!state.cart.size) {
     alert("Escolha pelo menos um item antes de finalizar.");
     return;
   }
 
-  const summary = cartSummary();
-  const deliveryText = state.delivery
-    ? [
-        `Endereco: ${state.delivery.address}`,
-        state.delivery.complement ? `Complemento: ${state.delivery.complement}` : "",
-        `Rota: ${state.delivery.distanceKm.toFixed(1)} km / ${state.delivery.durationMin} min`,
-        `Frete: ${formatter.format(state.delivery.fee)}`
-      ].filter(Boolean)
-    : ["Endereco/frete: a confirmar"];
+  if (!customerName.value.trim() || !customerPhone.value.trim()) {
+    orderStatus.textContent = "Informe nome e telefone para enviar o pedido.";
+    return;
+  }
 
-  const lines = entries.map(({ item, qty, point }) => {
-    const pointText = point ? ` (${point})` : "";
-    return `${qty}x ${item.name}${pointText}`;
-  });
+  if (!state.delivery) {
+    orderStatus.textContent = "Calcule o frete antes de enviar o pedido pelo site.";
+    return;
+  }
 
-  const total = formatter.format(summary.subtotal + deliveryValue());
-  const message = encodeURIComponent(
-    `Oi! Quero fazer um pedido na Brasa Quente:\n${lines.join("\n")}\n\n${deliveryText.join("\n")}\nSubtotal: ${formatter.format(summary.subtotal)}\nTotal estimado: ${total}`
-  );
+  orderStatus.textContent = "Enviando pedido para a cozinha...";
 
-  window.open(`https://wa.me/5500000000000?text=${message}`, "_blank", "noreferrer");
+  try {
+    const response = await fetch("/api/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(orderPayload())
+    });
+    const result = await response.json();
+    if (!response.ok || !result.ok) throw new Error(result.error || "Nao foi possivel criar o pedido.");
+
+    const order = result.order;
+    orderStatus.textContent = `Pedido ${order.id} recebido. Total com desconto do site: ${formatter.format(order.pricing.total)}.`;
+    state.cart.clear();
+    renderCart();
+  } catch (error) {
+    orderStatus.textContent = `${error.message} Se estiver em GitHub Pages, rode o servidor local com npm start para usar a API.`;
+  }
 }
 
 document.addEventListener("click", (event) => {
