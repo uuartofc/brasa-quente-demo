@@ -1,42 +1,59 @@
+const STORE_ADDRESS = "Rua Diamante, Jardim Kennedy II, Pocos de Caldas, MG, 37706-528";
+const STORE_COORDS = { lat: -21.788, lon: -46.562713 };
+const MEAT_POINTS = ["Mal passado", "Ao ponto", "Bem passado"];
+
 const menu = [
   {
     id: "brasa-classico",
     name: "Brasa Classico",
-    category: "burgers",
+    category: "smash",
     initials: "BC",
     image: "assets/menu/brasa-classico.png",
     colors: ["#d12e24", "#f2b326"],
-    description: "Blend bovino, queijo derretido, alface, tomate, picles e molho da casa no pao tostado.",
-    price: 32.9
+    description: "Pao brioche, smash 80g, cheddar e Molho Brasa.",
+    price: 15.9,
+    meatPoint: true
   },
   {
-    id: "bacon-artesanal",
-    name: "Bacon Artesanal",
-    category: "burgers",
-    initials: "BA",
-    image: "assets/menu/bacon-artesanal.png",
+    id: "brasa-duplo",
+    name: "Brasa Duplo",
+    category: "smash",
+    initials: "BD",
     colors: ["#7b251c", "#f2b326"],
-    description: "Blend bovino, cheddar, bacon crocante, cebola caramelizada e barbecue da casa.",
-    price: 37.9
+    description: "Dois smash 80g, cheddar duplo, Molho Brasa e cebola caramelizada.",
+    price: 19.9,
+    meatPoint: true
   },
   {
-    id: "cheddar-brasa",
-    name: "Cheddar Brasa",
-    category: "burgers",
-    initials: "CB",
+    id: "brasa-bacon",
+    name: "Brasa Bacon",
+    category: "smash",
+    initials: "BB",
+    image: "assets/menu/bacon-artesanal.png",
+    colors: ["#d12e24", "#7b251c"],
+    description: "Smash 100g, cheddar, bacon crocante e Molho Brasa.",
+    price: 22.9,
+    meatPoint: true
+  },
+  {
+    id: "brasa-vulcao",
+    name: "Brasa Vulcao",
+    category: "assinatura",
+    initials: "BV",
     colors: ["#f2b326", "#d85b24"],
-    description: "Carne selada na chapa, cheddar cremoso, cebola dourada e toque suave de paprica.",
-    price: 35.9
+    description: "Dois smash 100g, cheddar cremoso, bacon, anel acebolado e Molho Vulcao.",
+    price: 25.9,
+    meatPoint: true
   },
   {
-    id: "frango-ervas",
-    name: "Frango com Ervas",
-    category: "burgers",
-    initials: "FE",
-    image: "assets/menu/frango-ervas.png",
+    id: "brasa-mineiro",
+    name: "Brasa Mineiro",
+    category: "assinatura",
+    initials: "BM",
     colors: ["#258452", "#f2b326"],
-    description: "Frango grelhado, queijo cremoso, salada fresca e maionese de ervas.",
-    price: 33.9
+    description: "Smash 100g, queijo minas macaricado, bacon e molho de alho artesanal.",
+    price: 24.9,
+    meatPoint: true
   },
   {
     id: "combo-brasa-casa",
@@ -44,8 +61,9 @@ const menu = [
     category: "combos",
     initials: "CB",
     colors: ["#d12e24", "#258452"],
-    description: "Dois burgers artesanais, batata rustica grande, dois refrigerantes e molho da casa.",
-    price: 78.9
+    description: "Brasa Classico, batata pequena e refrigerante lata.",
+    price: 27.9,
+    meatPoint: true
   },
   {
     id: "combo-familia",
@@ -53,27 +71,46 @@ const menu = [
     category: "combos",
     initials: "CF",
     colors: ["#1d1715", "#d12e24"],
-    description: "Quatro burgers, duas batatas rusticas, refrigerante 2 litros e molhos extras.",
-    price: 154.9
+    description: "Quatro smashs, duas batatas medias, refrigerante 2 litros e molhos extras.",
+    price: 104.9,
+    meatPoint: true
   },
   {
-    id: "batata-rustica",
-    name: "Batata Rustica",
+    id: "batata-pequena",
+    name: "Batata Pequena",
     category: "porcoes",
-    initials: "BR",
+    initials: "BP",
+    colors: ["#f2b326", "#7b251c"],
+    description: "Crocante, sequinha e feita para beliscar.",
+    price: 8.9
+  },
+  {
+    id: "batata-media",
+    name: "Batata Media",
+    category: "porcoes",
+    initials: "BM",
     image: "assets/menu/batata-rustica.png",
     colors: ["#f2b326", "#7b251c"],
-    description: "Batatas douradas com ervas, sal da casa e maionese artesanal para acompanhar.",
-    price: 26.9
+    description: "Boa para dividir ou acompanhar um burger parrudo.",
+    price: 12.9
   },
   {
-    id: "aneis-cebola",
-    name: "Aneis de Cebola",
+    id: "batata-brasa",
+    name: "Batata Brasa",
     category: "porcoes",
-    initials: "AC",
+    initials: "BR",
     colors: ["#d85b24", "#1d1715"],
-    description: "Porcao crocante de onion rings com barbecue suave ou maionese verde.",
-    price: 24.9
+    description: "Batata crocante com cheddar cremoso e bacon crocante.",
+    price: 16.9
+  },
+  {
+    id: "anel-acebolado",
+    name: "Anel Acebolado",
+    category: "porcoes",
+    initials: "AA",
+    colors: ["#f2b326", "#d85b24"],
+    description: "Aneis empanados, dourados e crocantes.",
+    price: 14.9
   },
   {
     id: "refri-lata",
@@ -81,17 +118,17 @@ const menu = [
     category: "bebidas",
     initials: "RL",
     colors: ["#258452", "#1b5f94"],
-    description: "Lata gelada de 350 ml. Consulte sabores disponiveis no balcao.",
+    description: "Coca-Cola, Coca Zero, Guarana Antarctica ou Fanta Laranja.",
     price: 7.9
   },
   {
-    id: "limonada-casa",
-    name: "Limonada da Casa",
+    id: "agua",
+    name: "Agua Mineral",
     category: "bebidas",
-    initials: "LC",
-    colors: ["#258452", "#f2b326"],
-    description: "Limonada fresca com hortela, feita para acompanhar burger e batata.",
-    price: 11.9
+    initials: "AG",
+    colors: ["#1b5f94", "#258452"],
+    description: "Com ou sem gas. Consulte disponibilidade.",
+    price: 4.9
   }
 ];
 
@@ -102,16 +139,22 @@ const formatter = new Intl.NumberFormat("pt-BR", {
 
 const state = {
   filter: "todos",
-  cart: new Map()
+  cart: new Map(),
+  delivery: null
 };
 
 const grid = document.querySelector("[data-menu-grid]");
 const cart = document.querySelector("[data-cart]");
 const scrim = document.querySelector("[data-scrim]");
 const cartItems = document.querySelector("[data-cart-items]");
+const cartSubtotal = document.querySelector("[data-cart-subtotal]");
+const deliveryFee = document.querySelector("[data-delivery-fee]");
 const cartTotal = document.querySelector("[data-cart-total]");
 const cartCount = document.querySelector("[data-cart-count]");
 const header = document.querySelector("[data-header]");
+const addressInput = document.querySelector("[data-address]");
+const addressComplement = document.querySelector("[data-complement]");
+const deliveryStatus = document.querySelector("[data-delivery-status]");
 
 function visibleItems() {
   if (state.filter === "todos") return menu;
@@ -120,58 +163,89 @@ function visibleItems() {
 
 function renderMenu() {
   grid.innerHTML = visibleItems()
-    .map((item) => `
-      <article class="menu-card" data-category="${item.category}">
-        ${item.image
-          ? `<img class="food-photo" src="${item.image}" alt="${item.name}">`
-          : `<div class="food-badge" style="--badge-a: ${item.colors[0]}; --badge-b: ${item.colors[1]}">${item.initials}</div>`}
-        <div>
-          <h3>${item.name}</h3>
-          <p>${item.description}</p>
-        </div>
-        <div class="menu-meta">
-          <strong class="price">${formatter.format(item.price)}</strong>
-          <button class="add-button" type="button" data-add="${item.id}">Adicionar</button>
-        </div>
-      </article>
-    `)
+    .map((item) => {
+      const pointControl = item.meatPoint
+        ? `<label class="point-select">Ponto da carne
+            <select data-point="${item.id}">
+              ${MEAT_POINTS.map((point) => `<option ${point === "Ao ponto" ? "selected" : ""}>${point}</option>`).join("")}
+            </select>
+          </label>`
+        : "";
+
+      return `
+        <article class="menu-card" data-category="${item.category}">
+          ${item.image
+            ? `<img class="food-photo" src="${item.image}" alt="${item.name}">`
+            : `<div class="food-badge" style="--badge-a: ${item.colors[0]}; --badge-b: ${item.colors[1]}">${item.initials}</div>`}
+          <div>
+            <span class="category-label">${categoryName(item.category)}</span>
+            <h3>${item.name}</h3>
+            <p>${item.description}</p>
+          </div>
+          <div>
+            ${pointControl}
+            <div class="menu-meta">
+              <strong class="price">${formatter.format(item.price)}</strong>
+              <button class="add-button" type="button" data-add="${item.id}">Adicionar</button>
+            </div>
+          </div>
+        </article>
+      `;
+    })
     .join("");
+}
+
+function categoryName(category) {
+  return {
+    smash: "Linha Smash",
+    assinatura: "Linha Assinatura",
+    combos: "Combos",
+    porcoes: "Porcoes",
+    bebidas: "Bebidas"
+  }[category] || "Cardapio";
 }
 
 function cartSummary() {
   return [...state.cart.values()].reduce(
     (summary, entry) => {
       summary.count += entry.qty;
-      summary.total += entry.qty * entry.item.price;
+      summary.subtotal += entry.qty * entry.item.price;
       return summary;
     },
-    { count: 0, total: 0 }
+    { count: 0, subtotal: 0 }
   );
+}
+
+function deliveryValue() {
+  return state.delivery?.fee ?? 0;
 }
 
 function renderCart() {
   const entries = [...state.cart.values()];
   const summary = cartSummary();
+  const total = summary.subtotal + deliveryValue();
 
   cartCount.textContent = summary.count;
-  cartTotal.textContent = formatter.format(summary.total);
+  cartSubtotal.textContent = formatter.format(summary.subtotal);
+  deliveryFee.textContent = state.delivery ? formatter.format(state.delivery.fee) : "A calcular";
+  cartTotal.textContent = formatter.format(total);
 
   if (!entries.length) {
-    cartItems.innerHTML = '<p class="cart-empty">Seu carrinho esta vazio. Escolha um lanche no cardapio para comecar.</p>';
+    cartItems.innerHTML = '<p class="cart-empty">Seu carrinho esta vazio. Escolha um item no cardapio para comecar.</p>';
     return;
   }
 
   cartItems.innerHTML = entries
-    .map(({ item, qty }) => `
+    .map(({ key, item, qty, point }) => `
       <div class="cart-row">
         <div>
           <strong>${item.name}</strong>
-          <small>${formatter.format(item.price)} cada</small>
+          <small>${point ? `Ponto: ${point} · ` : ""}${formatter.format(item.price)} cada</small>
         </div>
         <div class="qty-controls" aria-label="Quantidade de ${item.name}">
-          <button type="button" data-decrease="${item.id}">-</button>
+          <button type="button" data-decrease="${key}">-</button>
           <span>${qty}</span>
-          <button type="button" data-increase="${item.id}">+</button>
+          <button type="button" data-increase="${key}">+</button>
         </div>
       </div>
     `)
@@ -182,21 +256,23 @@ function addToCart(id) {
   const item = menu.find((entry) => entry.id === id);
   if (!item) return;
 
-  const current = state.cart.get(id);
-  state.cart.set(id, { item, qty: current ? current.qty + 1 : 1 });
+  const point = item.meatPoint ? document.querySelector(`[data-point="${id}"]`)?.value || "Ao ponto" : "";
+  const key = point ? `${id}::${point}` : id;
+  const current = state.cart.get(key);
+  state.cart.set(key, { key, item, point, qty: current ? current.qty + 1 : 1 });
   renderCart();
   openCart();
 }
 
-function changeQty(id, delta) {
-  const current = state.cart.get(id);
+function changeQty(key, delta) {
+  const current = state.cart.get(key);
   if (!current) return;
 
   const nextQty = current.qty + delta;
   if (nextQty <= 0) {
-    state.cart.delete(id);
+    state.cart.delete(key);
   } else {
-    state.cart.set(id, { item: current.item, qty: nextQty });
+    state.cart.set(key, { ...current, qty: nextQty });
   }
 
   renderCart();
@@ -214,6 +290,97 @@ function closeCart() {
   scrim.classList.remove("open");
   cart.setAttribute("aria-hidden", "true");
   document.body.classList.remove("cart-open");
+}
+
+async function geocode(address) {
+  const query = `${address}, Pocos de Caldas, Minas Gerais, Brasil`;
+  const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=br&q=${encodeURIComponent(query)}`;
+  const response = await fetch(url, { headers: { Accept: "application/json" } });
+  if (!response.ok) throw new Error("Nao foi possivel localizar o endereco.");
+  const results = await response.json();
+  if (!results.length) throw new Error("Endereco nao encontrado. Confira rua, numero e bairro.");
+  return { lat: Number(results[0].lat), lon: Number(results[0].lon), label: results[0].display_name };
+}
+
+async function routeDistanceKm(destination) {
+  const coords = `${STORE_COORDS.lon},${STORE_COORDS.lat};${destination.lon},${destination.lat}`;
+  const url = `https://router.project-osrm.org/route/v1/driving/${coords}?overview=false`;
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("Nao foi possivel calcular a rota.");
+  const data = await response.json();
+  const route = data.routes?.[0];
+  if (!route) throw new Error("Rota nao encontrada para esse endereco.");
+  return {
+    distanceKm: route.distance / 1000,
+    durationMin: Math.round(route.duration / 60)
+  };
+}
+
+function estimateFee(distanceKm) {
+  const fee = Math.max(6, 5 + distanceKm * 2.2);
+  return Math.round(fee * 2) / 2;
+}
+
+async function calculateDelivery() {
+  const address = addressInput.value.trim();
+  if (!address) {
+    deliveryStatus.textContent = "Informe rua, numero e bairro para calcular.";
+    return;
+  }
+
+  deliveryStatus.textContent = "Calculando rota e frete...";
+  state.delivery = null;
+  renderCart();
+
+  try {
+    const destination = await geocode(address);
+    const route = await routeDistanceKm(destination);
+    const fee = estimateFee(route.distanceKm);
+    state.delivery = {
+      address,
+      complement: addressComplement.value.trim(),
+      fee,
+      distanceKm: route.distanceKm,
+      durationMin: route.durationMin,
+      label: destination.label
+    };
+    deliveryStatus.textContent = `Rota estimada: ${route.distanceKm.toFixed(1)} km · ${route.durationMin} min · frete ${formatter.format(fee)}.`;
+  } catch (error) {
+    state.delivery = null;
+    deliveryStatus.textContent = `${error.message} Frete fica a confirmar pelo atendimento.`;
+  }
+
+  renderCart();
+}
+
+function checkout() {
+  const entries = [...state.cart.values()];
+  if (!entries.length) {
+    alert("Escolha pelo menos um item antes de finalizar.");
+    return;
+  }
+
+  const summary = cartSummary();
+  const deliveryText = state.delivery
+    ? [
+        `Endereco: ${state.delivery.address}`,
+        state.delivery.complement ? `Complemento: ${state.delivery.complement}` : "",
+        `Rota: ${state.delivery.distanceKm.toFixed(1)} km / ${state.delivery.durationMin} min`,
+        `Frete: ${formatter.format(state.delivery.fee)}`
+      ].filter(Boolean)
+    : ["Endereco/frete: a confirmar"];
+
+  const lines = entries.map(({ item, qty, point }) => {
+    const pointText = point ? ` (${point})` : "";
+    return `${qty}x ${item.name}${pointText}`;
+  });
+
+  const total = formatter.format(summary.subtotal + deliveryValue());
+  const message = encodeURIComponent(
+    `Oi! Quero fazer um pedido na Brasa Quente:\n${lines.join("\n")}\n\n${deliveryText.join("\n")}\nSubtotal: ${formatter.format(summary.subtotal)}\nTotal estimado: ${total}`
+  );
+
+  window.open(`https://wa.me/5500000000000?text=${message}`, "_blank", "noreferrer");
 }
 
 document.addEventListener("click", (event) => {
@@ -237,23 +404,12 @@ document.querySelectorAll("[data-filter]").forEach((button) => {
 
 document.querySelector("[data-open-cart]").addEventListener("click", openCart);
 document.querySelector("[data-close-cart]").addEventListener("click", closeCart);
+document.querySelector("[data-calculate-delivery]").addEventListener("click", calculateDelivery);
+document.querySelector("[data-checkout]").addEventListener("click", checkout);
 scrim.addEventListener("click", closeCart);
 
 document.querySelector("[data-featured-add]").addEventListener("click", () => {
   addToCart("combo-brasa-casa");
-});
-
-document.querySelector("[data-checkout]").addEventListener("click", () => {
-  const entries = [...state.cart.values()];
-  if (!entries.length) {
-    alert("Escolha pelo menos um item antes de finalizar.");
-    return;
-  }
-
-  const lines = entries.map(({ item, qty }) => `${qty}x ${item.name}`);
-  const total = formatter.format(cartSummary().total);
-  const message = encodeURIComponent(`Oi! Quero fazer um pedido na Brasa Quente:\n${lines.join("\n")}\nTotal: ${total}`);
-  window.open(`https://wa.me/5500000000000?text=${message}`, "_blank", "noreferrer");
 });
 
 window.addEventListener("scroll", () => {

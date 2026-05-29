@@ -255,6 +255,13 @@ h1 {
   outline: 1px solid rgba(255, 255, 255, 0.32);
 }
 
+.button.secondary.dark {
+  width: 100%;
+  background: var(--ink);
+  color: #fff;
+  outline: 0;
+}
+
 .button.full {
   width: 100%;
 }
@@ -377,6 +384,7 @@ h1 {
   display: grid;
   min-height: 310px;
   align-content: space-between;
+  gap: 14px;
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -409,15 +417,49 @@ h1 {
 }
 
 .menu-card h3 {
-  margin: 18px 0 8px;
+  margin: 6px 0 8px;
   font-size: 1.18rem;
 }
 
 .menu-card p {
-  min-height: 68px;
+  min-height: 78px;
   color: var(--muted);
   font-size: 0.94rem;
   line-height: 1.55;
+}
+
+.category-label {
+  display: inline-flex;
+  margin-top: 2px;
+  color: var(--red);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.point-select {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.point-select select,
+.delivery-box input {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+.point-select select {
+  padding: 0 10px;
 }
 
 .menu-meta {
@@ -518,7 +560,7 @@ h1 {
   z-index: 40;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  width: min(440px, 100vw);
+  width: min(500px, 100vw);
   height: 100vh;
   background: #fff;
   box-shadow: var(--shadow);
@@ -559,7 +601,7 @@ h1 {
 
 .cart-items {
   overflow: auto;
-  padding: 12px 22px;
+  padding: 12px 22px 0;
 }
 
 .cart-empty {
@@ -611,12 +653,63 @@ h1 {
   border-top: 1px solid var(--line);
 }
 
+.delivery-box {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--cream);
+}
+
+.delivery-box strong,
+.delivery-box small,
+.delivery-box label,
+.delivery-box p {
+  display: block;
+}
+
+.delivery-box small {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.delivery-box label {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.delivery-box input {
+  margin-top: 6px;
+  padding: 0 12px;
+}
+
+.delivery-box p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
 .cart-total {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   font-size: 1.15rem;
+}
+
+.muted-total {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.grand-total {
+  margin: 12px 0 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
 }
 
 .cart-footer small {

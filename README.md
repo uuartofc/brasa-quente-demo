@@ -6,6 +6,14 @@ Landing page/catalogo para a lanchonete artesanal Brasa Quente, da J&A Ltda.
 
 Este projeto e uma pagina estatica para apresentacao da marca, catalogo inicial e fluxo de carrinho demonstrativo.
 
+Recursos da demo:
+
+- Cardapio separado por Linha Smash, Assinatura, Combos, Porcoes e Bebidas.
+- Escolha de ponto da carne nos burgers e combos com carne.
+- Fluxo exclusivo para delivery.
+- Estimativa de rota e frete a partir da Rua Diamante, Jardim Kennedy II, Pocos de Caldas/MG.
+- Mensagem de WhatsApp montada com itens, ponto da carne, endereco, frete e total estimado.
+
 Para abrir localmente:
 
 ```bash

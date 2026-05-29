@@ -48,8 +48,8 @@
           <p class="eyebrow">Lanchonete artesanal</p>
           <h1 id="hero-title">Brasa Quente</h1>
           <p>
-            Burgers artesanais, ingredientes frescos, batata crocante e combos bem montados.
-            Um catalogo com cara de balcao digital, pronto para virar pedido online.
+            Hamburgueria artesanal focada em delivery, com smash na brasa, porcoes crocantes
+            e pedido online pensado para calcular rota, ponto da carne e frete.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#cardapio">Ver cardapio</a>
@@ -57,12 +57,12 @@
           </div>
           <dl class="hero-stats" aria-label="Destaques">
             <div>
-              <dt>12+</dt>
-              <dd>opcoes no catalogo</dd>
+              <dt>13</dt>
+              <dd>itens organizados</dd>
             </div>
             <div>
-              <dt>35 min</dt>
-              <dd>preparo medio</dd>
+              <dt>Delivery</dt>
+              <dd>sem retirada no balcao</dd>
             </div>
             <div>
               <dt>J&amp;A</dt>
@@ -76,8 +76,8 @@
         <span>Pao tostado na chapa</span>
         <span>Blend artesanal</span>
         <span>Molhos da casa</span>
-        <span>Combos bem servidos</span>
-        <span>Pedido online em breve</span>
+        <span>Ponto da carne</span>
+        <span>Frete por rota</span>
       </section>
 
       <section class="section intro" aria-labelledby="intro-title">
@@ -88,20 +88,21 @@
         <p>
           <strong>Brasa Quente</strong> combina com chapa, pao tostado e burger feito com cuidado.
           A J&amp;A Ltda continua como empresa por tras da operacao, enquanto o nome fantasia conversa
-          melhor com quem busca um lanche artesanal e bem servido. A landing page ja nasce com catalogo,
-          carrinho local e secoes que podem receber pagamentos, login, entrega e painel administrativo depois.
+          melhor com quem busca um lanche artesanal e bem servido. A landing page agora nasce como delivery:
+          o cliente escolhe o ponto da carne, informa o endereco e recebe uma estimativa de rota e frete.
         </p>
       </section>
 
       <section class="section menu-section" id="cardapio" aria-labelledby="menu-title">
         <div class="section-heading">
           <p class="eyebrow">Catalogo</p>
-          <h2 id="menu-title">Cardapio artesanal, claro e facil de pedir.</h2>
+          <h2 id="menu-title">Cardapio organizado para delivery.</h2>
         </div>
 
         <div class="filters" role="tablist" aria-label="Filtrar cardapio">
           <button class="filter active" type="button" data-filter="todos">Todos</button>
-          <button class="filter" type="button" data-filter="burgers">Burgers</button>
+          <button class="filter" type="button" data-filter="smash">Linha Smash</button>
+          <button class="filter" type="button" data-filter="assinatura">Assinatura</button>
           <button class="filter" type="button" data-filter="combos">Combos</button>
           <button class="filter" type="button" data-filter="porcoes">Porcoes</button>
           <button class="filter" type="button" data-filter="bebidas">Bebidas</button>
@@ -115,8 +116,8 @@
           <p class="eyebrow">Mais pedido</p>
           <h2 id="combo-title">Combo Brasa da Casa</h2>
           <p>
-            Dois burgers artesanais, batata rustica, dois refrigerantes e molho da casa.
-            Um destaque perfeito para delivery, vitrine do cardapio e primeira compra.
+            Brasa Classico, batata pequena e refrigerante lata. O cliente escolhe o ponto
+            da carne e calcula o frete antes de chamar no WhatsApp.
           </p>
           <button class="button primary" type="button" data-featured-add>Adicionar combo</button>
         </div>
@@ -124,17 +125,17 @@
           <article>
             <span>01</span>
             <h3>Cliente escolhe</h3>
-            <p>O catalogo ja separa categorias, precos e descricoes.</p>
+            <p>O catalogo separa Linha Smash, Assinatura, Porcoes, Combos e Bebidas.</p>
           </article>
           <article>
             <span>02</span>
-            <h3>Carrinho monta</h3>
-            <p>O total local simula o primeiro passo do pedido online.</p>
+            <h3>Ponto e endereco</h3>
+            <p>Os burgers aceitam ponto da carne e o pedido pede endereco de entrega.</p>
           </article>
           <article>
             <span>03</span>
-            <h3>Sistema recebe</h3>
-            <p>Depois entra checkout, WhatsApp, Pix ou painel proprio.</p>
+            <h3>Frete estimado</h3>
+            <p>A rota sai da Rua Diamante, Jardim Kennedy II, em Pocos de Caldas.</p>
           </article>
         </div>
       </section>
@@ -148,15 +149,15 @@
         <div class="order-grid">
           <article class="order-card">
             <h3>Status atual</h3>
-            <p>Catalogo navegavel com carrinho no navegador. Ideal para validar cardapio, preco e identidade visual.</p>
+            <p>Catalogo navegavel com carrinho, ponto da carne e formulario de delivery.</p>
           </article>
           <article class="order-card">
             <h3>Proximo passo</h3>
-            <p>Conectar o botao de finalizar ao WhatsApp, a uma API propria ou a um sistema de pedidos.</p>
+            <p>Trocar o WhatsApp placeholder, validar a tabela de frete e conectar pagamento.</p>
           </article>
           <article class="order-card">
             <h3>Depois</h3>
-            <p>Adicionar cadastro, pagamento online, cupom, acompanhamento de preparo e area administrativa.</p>
+            <p>Adicionar cadastro, Pix, cupom, acompanhamento de preparo e area administrativa.</p>
           </article>
         </div>
       </section>
@@ -172,12 +173,34 @@
       </div>
       <div class="cart-items" data-cart-items></div>
       <div class="cart-footer">
-        <div class="cart-total">
-          <span>Total</span>
+        <div class="delivery-box">
+          <strong>Entrega</strong>
+          <small>Origem: Rua Diamante, Jardim Kennedy II, Pocos de Caldas - MG</small>
+          <label>
+            Endereco do cliente
+            <input data-address type="text" placeholder="Rua, numero e bairro">
+          </label>
+          <label>
+            Complemento
+            <input data-complement type="text" placeholder="Apto, referencia, portao...">
+          </label>
+          <button class="button secondary dark" type="button" data-calculate-delivery>Calcular frete</button>
+          <p data-delivery-status>Informe o endereco para estimar rota e frete.</p>
+        </div>
+        <div class="cart-total muted-total">
+          <span>Subtotal</span>
+          <strong data-cart-subtotal>R$ 0,00</strong>
+        </div>
+        <div class="cart-total muted-total">
+          <span>Frete</span>
+          <strong data-delivery-fee>A calcular</strong>
+        </div>
+        <div class="cart-total grand-total">
+          <span>Total estimado</span>
           <strong data-cart-total>R$ 0,00</strong>
         </div>
         <button class="button primary full" type="button" data-checkout>Finalizar pelo WhatsApp</button>
-        <small>Simulacao pronta para conectar ao sistema de pedidos.</small>
+        <small>Delivery apenas. Frete calculado por rota estimada e sujeito a confirmacao.</small>
       </div>
     </aside>
     <div class="scrim" data-scrim></div>
@@ -191,7 +214,7 @@
             <small>J&amp;A Ltda</small>
           </span>
         </a>
-        <p>Rua da Chapa, 123 - Centro<br>Aberto de terca a domingo, 18h as 23h.</p>
+        <p>Rua Diamante, Jardim Kennedy II - Pocos de Caldas/MG<br>Delivery de terca a domingo, 19h as 01h.</p>
       </div>
       <div class="footer-links">
         <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">WhatsApp</a>
